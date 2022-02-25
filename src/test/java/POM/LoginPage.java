@@ -24,6 +24,9 @@ public class LoginPage extends BasePOM {
     @FindBy(xpath = "//span[contains(text(),'Welcome')]")
     private WebElement welcomeMessage;
 
+    @FindBy(xpath = "//div[@id='cconsent-bar']//button")
+    private WebElement acceptCookies;
+
     private String expectedUrlOnLoginPage = "https://test.mersys.io/";
     private String usernameForAdmin = "i.muratov";
     private String passwordForAdmin = "QWEasd@1901";
@@ -37,6 +40,7 @@ public class LoginPage extends BasePOM {
     }
 
     public void userEnterAdminCredentials() {
+        acceptCookies.click();
         usernameInput.sendKeys(usernameForAdmin);
         passwordInput.sendKeys(passwordForAdmin);
         loginButton.click();
