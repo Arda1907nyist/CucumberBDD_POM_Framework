@@ -45,6 +45,9 @@ public class DialogContentElements extends BasePOM{
     @FindBy(xpath = "//td[text()='2']")
     private WebElement secondDataInList;
 
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='shortName']//input")
+    private WebElement shortNameInput;
+
     public void createCountry() {
         addButton.click();
         nameInput.sendKeys("HalitCountry123");
@@ -71,6 +74,31 @@ public class DialogContentElements extends BasePOM{
     public void deleteCountry() throws InterruptedException {
         nameSearchInput.sendKeys("UpdatedHalitCountry123");
         waitUntilElementVisibleAndClickableThenClick(searchButton);
+        Thread.sleep(700);
+        waitUntilElementVisibleAndClickableThenClick(deleteButton);
+        waitUntilElementVisibleAndClickableThenClick(submitDeleteButton);
+    }
+
+    public void addCitizenship(String name, String shortname) {
+        addButton.click();
+        nameInput.sendKeys(name);
+        shortNameInput.sendKeys(shortname);
+        saveButton.click();
+    }
+
+    public void editCitizenship(String oldCitizenshipName, String newCitizenshipName) throws InterruptedException {
+        nameSearchInput.sendKeys(oldCitizenshipName);
+        searchButton.click();
+        Thread.sleep(700);
+        waitUntilElementVisibleAndClickableThenClick(editButton);
+        nameInput.clear();
+        nameInput.sendKeys(newCitizenshipName);
+        saveButton.click();
+    }
+
+    public void deleteCitizenship(String citizenshipToDelete) throws InterruptedException {
+        nameSearchInput.sendKeys(citizenshipToDelete);
+        searchButton.click();
         Thread.sleep(700);
         waitUntilElementVisibleAndClickableThenClick(deleteButton);
         waitUntilElementVisibleAndClickableThenClick(submitDeleteButton);

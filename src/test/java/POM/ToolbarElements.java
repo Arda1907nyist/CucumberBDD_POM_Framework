@@ -22,11 +22,21 @@ public class ToolbarElements extends BasePOM{
     @FindBy(xpath = "//span[text()='Countries']/..")
     private WebElement countriesButton;
 
+    @FindBy(xpath = "//span[text()='Citizenships']/..")
+    private WebElement citizenshipButton;
+
     public void navigateToCountriesPage() {
         moreOptionsButton.click();
         setupButton.click();
         parametersButton.click();
         countriesButton.click();
+    }
+
+    public void navigateToCitizenshipsPage() {
+        moreOptionsButton.click();
+        setupButton.click();
+        parametersButton.click();
+        citizenshipButton.click();
     }
 
 }
