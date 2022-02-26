@@ -27,9 +27,27 @@ public class DialogContentElements extends BasePOM{
     @FindBy(xpath = "//div[contains(text(),'successfully')]")
     private WebElement successMessage;
 
+    @FindBy(xpath = "//ms-text-field[@placeholder='GENERAL.FIELD.NAME']//input")
+    private WebElement nameSearchInput;
+
+    @FindBy(xpath = "//ms-search-button//button")
+    private WebElement searchButton;
+
+    @FindBy(xpath = "//ms-edit-button//button")
+    private WebElement editButton;
+
+    @FindBy(xpath = "//ms-delete-button//button")
+    private WebElement deleteButton;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement submitDeleteButton;
+
+    @FindBy(xpath = "//td[text()='2']")
+    private WebElement secondDataInList;
+
     public void createCountry() {
         addButton.click();
-        nameInput.sendKeys("TestCountry123");
+        nameInput.sendKeys("HalitCountry123");
         codeInput.sendKeys("456789");
         saveButton.click();
     }
@@ -38,6 +56,24 @@ public class DialogContentElements extends BasePOM{
         wait.until(ExpectedConditions.visibilityOf(successMessage));
         Assert.assertTrue(successMessage.isDisplayed());
         Assert.assertTrue(successMessage.getText().toLowerCase().contains("successfully"));
+    }
+
+    public void editCountry() throws InterruptedException {
+        nameSearchInput.sendKeys("HalitCountry123");
+        waitUntilElementVisibleAndClickableThenClick(searchButton);
+        Thread.sleep(700);
+        waitUntilElementVisibleAndClickableThenClick(editButton);
+        nameInput.clear();
+        nameInput.sendKeys("UpdatedHalitCountry123");
+        saveButton.click();
+    }
+
+    public void deleteCountry() throws InterruptedException {
+        nameSearchInput.sendKeys("UpdatedHalitCountry123");
+        waitUntilElementVisibleAndClickableThenClick(searchButton);
+        Thread.sleep(700);
+        waitUntilElementVisibleAndClickableThenClick(deleteButton);
+        waitUntilElementVisibleAndClickableThenClick(submitDeleteButton);
     }
 
 }

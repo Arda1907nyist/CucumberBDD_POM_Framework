@@ -23,4 +23,20 @@ public class CountriesSteps {
         dialogContentElements.validateSuccessMessage();
     }
 
+    @And("User edit Country")
+    public void user_edit_country() throws InterruptedException {
+       toolbarElements = new ToolbarElements();
+       dialogContentElements = new DialogContentElements();
+       toolbarElements.navigateToCountriesPage();
+       dialogContentElements.editCountry();
+    }
+
+    @And("User delete Country")
+    public void user_delete_country() throws InterruptedException {
+        toolbarElements = new ToolbarElements();
+        dialogContentElements = new DialogContentElements();
+        toolbarElements.navigateToCountriesPage();
+        dialogContentElements.deleteCountry();
+    }
+
 }
