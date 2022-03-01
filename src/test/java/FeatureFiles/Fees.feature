@@ -5,6 +5,7 @@ Feature: Fees Functionality
     When User enter admin credentials
     Then User should login successfully
 
+  @Regression
   Scenario Outline: Add Fees
     And User create Fee "<name>" and "<code>" and "<intCode>" and "<priority>"
     Then Success message should be displayed

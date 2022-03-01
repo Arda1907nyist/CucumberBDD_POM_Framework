@@ -5,7 +5,7 @@ Feature: Citizenship Functionality
     When User enter admin credentials
     Then User should login successfully
 
-
+  @Regression
   Scenario: Add Citizenship
     And User create citizenship with "HalitCitizen" name and "HC" shortname
     Then Success message should be displayed

@@ -1,5 +1,6 @@
 Feature: Countries Functionality
 
+  @Regression
   Scenario: Create Country
     Given User is on login page
     When User enter admin credentials
