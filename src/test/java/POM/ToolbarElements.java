@@ -25,6 +25,9 @@ public class ToolbarElements extends BasePOM{
     @FindBy(xpath = "//span[text()='Citizenships']/..")
     private WebElement citizenshipButton;
 
+    @FindBy(xpath = "//span[text()='Fees']/..")
+    private WebElement feesButton;
+
     public void navigateToCountriesPage() {
         moreOptionsButton.click();
         setupButton.click();
@@ -37,6 +40,13 @@ public class ToolbarElements extends BasePOM{
         setupButton.click();
         parametersButton.click();
         citizenshipButton.click();
+    }
+
+    public void navigateToFeesPage() {
+        moreOptionsButton.click();
+        setupButton.click();
+        parametersButton.click();
+        waitUntilElementVisibleAndClickableThenClick(feesButton);
     }
 
 }

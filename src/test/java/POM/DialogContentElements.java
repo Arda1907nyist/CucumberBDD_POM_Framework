@@ -48,6 +48,12 @@ public class DialogContentElements extends BasePOM{
     @FindBy(xpath = "//ms-text-field[@formcontrolname='shortName']//input")
     private WebElement shortNameInput;
 
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='budgetAccountIntegrationCode']//input")
+    private WebElement integrationCodeInput;
+
+    @FindBy(xpath = "//ms-integer-field[@formcontrolname='priority']//input")
+    private WebElement priorityInput;
+
     public void createCountry() {
         addButton.click();
         nameInput.sendKeys("HalitCountry123");
@@ -102,6 +108,15 @@ public class DialogContentElements extends BasePOM{
         Thread.sleep(700);
         waitUntilElementVisibleAndClickableThenClick(deleteButton);
         waitUntilElementVisibleAndClickableThenClick(submitDeleteButton);
+    }
+
+    public void createFee(String name, String code, String intCode, String priority) {
+        addButton.click();
+        nameInput.sendKeys(name);
+        codeInput.sendKeys(code);
+        integrationCodeInput.sendKeys(intCode);
+        priorityInput.sendKeys(priority);
+        saveButton.click();
     }
 
 }
