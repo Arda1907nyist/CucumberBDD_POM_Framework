@@ -26,4 +26,14 @@ public class FeesSteps {
         dialogContentElements.editFee(existingFeeName, newFeeName);
     }
 
+
+    @Then("User delete Fee {string}")
+    public void user_delete_fee(String feeNameToDelete) throws InterruptedException {
+       toolbarElements = new ToolbarElements();
+       dialogContentElements = new DialogContentElements();
+       toolbarElements.navigateToFeesPage();
+       dialogContentElements.deleteFee(feeNameToDelete);
+    }
+
+
 }

@@ -129,4 +129,12 @@ public class DialogContentElements extends BasePOM{
         saveButton.click();
     }
 
+    public void deleteFee(String feeToDelete) throws InterruptedException {
+        nameSearchInput.sendKeys(feeToDelete);
+        searchButton.click();
+        Thread.sleep(700);
+        waitUntilElementVisibleAndClickableThenClick(deleteButton);
+        waitUntilElementVisibleAndClickableThenClick(submitDeleteButton);
+    }
+
 }

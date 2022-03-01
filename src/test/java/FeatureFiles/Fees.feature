@@ -25,3 +25,14 @@ Feature: Fees Functionality
       | HalitFee1       | Updated Halit Fee1 |
       | HalitFee2       | Updated Halit Fee2 |
       | HalitFee3       | Updated Halit Fee3 |
+
+
+  Scenario Outline: Delete Fees
+    And User delete Fee "<FeeName>"
+    Then Success message should be displayed
+
+    Examples:
+      | FeeName            |
+      | Updated Halit Fee1 |
+      | Updated Halit Fee2 |
+      | Updated Halit Fee3 |
