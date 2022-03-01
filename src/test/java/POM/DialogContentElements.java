@@ -119,4 +119,14 @@ public class DialogContentElements extends BasePOM{
         saveButton.click();
     }
 
+    public void editFee(String existingFeeName, String newFeeName) throws InterruptedException {
+        nameSearchInput.sendKeys(existingFeeName);
+        searchButton.click();
+        Thread.sleep(700);
+        waitUntilElementVisibleAndClickableThenClick(editButton);
+        nameInput.clear();
+        nameInput.sendKeys(newFeeName);
+        saveButton.click();
+    }
+
 }
